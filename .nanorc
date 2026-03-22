@@ -1,0 +1,38 @@
+# =============================================================================
+# ~/.nanorc
+# =============================================================================
+
+# Syntax highlighting (Arch'ta nano-syntax-highlighting paketi gerekli)
+include "/usr/share/nano/*.nanorc"
+include "/usr/share/nano/extra/*.nanorc"
+
+# Görünüm
+set linenumbers
+set numbercolor yellow,normal
+set selectedcolor black,yellow
+set statuscolor black,yellow
+set titlecolor black,blue
+set keycolor cyan,normal
+set functioncolor green,normal
+
+# Davranış
+set autoindent
+set tabsize 4
+set tabstospaces
+set smooth
+set mouse
+set nohelp
+set indicator
+set minibar
+
+# Arama
+set casesensitive
+set regexp
+
+# Dosya
+set backup
+set backupdir "~/.local/share/nano/backups"
+set historylog
+
+# Satır sonu
+set unix
