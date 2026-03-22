@@ -1,0 +1,88 @@
+# =============================================================================
+# Alacritty Config — Gruvbox Dark + Hack Font
+# =============================================================================
+
+[general]
+live_config_reload = true
+
+[window]
+padding = { x = 12, y = 10 }
+decorations = "none"
+opacity = 0.92
+blur = true
+dynamic_title = true
+
+[scrolling]
+history = 5000
+multiplier = 3
+
+[font]
+normal = { family = "Hack", style = "Regular" }
+bold   = { family = "Hack", style = "Bold" }
+italic = { family = "Hack", style = "Italic" }
+size   = 11.0
+
+[cursor]
+style = { shape = "Block", blinking = "On" }
+blink_interval = 750
+unfocused_hollow = true
+
+# =============================================================================
+# Gruvbox Dark Renk Şeması
+# =============================================================================
+[colors.primary]
+background = "#282828"
+foreground = "#ebdbb2"
+dim_foreground    = "#a89984"
+bright_foreground = "#fbf1c7"
+
+[colors.cursor]
+text   = "#282828"
+cursor = "#ebdbb2"
+
+[colors.vi_mode_cursor]
+text   = "#282828"
+cursor = "#fabd2f"
+
+[colors.selection]
+text       = "#282828"
+background = "#d79921"
+
+[colors.normal]
+black   = "#282828"
+red     = "#cc241d"
+green   = "#98971a"
+yellow  = "#d79921"
+blue    = "#458588"
+magenta = "#b16286"
+cyan    = "#689d6a"
+white   = "#a89984"
+
+[colors.bright]
+black   = "#928374"
+red     = "#fb4934"
+green   = "#b8bb26"
+yellow  = "#fabd2f"
+blue    = "#83a598"
+magenta = "#d3869b"
+cyan    = "#8ec07c"
+white   = "#ebdbb2"
+
+[colors.dim]
+black   = "#32302f"
+red     = "#9d0006"
+green   = "#79740e"
+yellow  = "#b57614"
+blue    = "#076678"
+magenta = "#8f3f71"
+cyan    = "#427b58"
+white   = "#928374"
+
+[keyboard]
+bindings = [
+    { key = "V", mods = "Control|Shift", action = "Paste" },
+    { key = "C", mods = "Control|Shift", action = "Copy"  },
+    { key = "Plus",  mods = "Control", action = "IncreaseFontSize" },
+    { key = "Minus", mods = "Control", action = "DecreaseFontSize" },
+    { key = "Key0",  mods = "Control", action = "ResetFontSize"    },
+]

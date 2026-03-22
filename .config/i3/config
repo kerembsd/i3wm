@@ -1,0 +1,203 @@
+# =============================================================================
+# i3 Config — Gruvbox Theme
+# =============================================================================
+set $mod Mod4
+
+# Font
+font pango:Hack 10
+
+# Gaps
+gaps inner 8
+gaps outer 4
+smart_gaps on
+smart_borders on
+default_border pixel 2
+default_floating_border pixel 2
+
+# =============================================================================
+# Gruvbox Renkleri
+# =============================================================================
+# bg       #282828
+# bg1      #3c3836
+# bg2      #504945
+# fg       #ebdbb2
+# red      #cc241d / #fb4934
+# green    #98971a / #b8bb26
+# yellow   #d79921 / #fabd2f
+# blue     #458588 / #83a598
+# purple   #b16286 / #d3869b
+# aqua     #689d6a / #8ec07c
+# orange   #d65d0e / #fe8019
+# gray     #a89984
+
+# class                 border   bg       text     indicator child_border
+client.focused          #458588  #458588  #282828  #fabd2f   #458588
+client.focused_inactive #3c3836  #3c3836  #a89984  #282828   #3c3836
+client.unfocused        #282828  #282828  #a89984  #282828   #282828
+client.urgent           #cc241d  #cc241d  #ebdbb2  #cc241d   #cc241d
+client.placeholder      #282828  #282828  #ebdbb2  #282828   #282828
+client.background       #282828
+
+# =============================================================================
+# Temel Kısayollar
+# =============================================================================
+floating_modifier $mod
+
+# Terminal
+bindsym $mod+Return exec alacritty
+
+# Uygulama başlatıcı
+bindsym $mod+d exec dmenu_run -nb '#282828' -nf '#ebdbb2' -sb '#458588' -sf '#282828' -fn 'Hack-10'
+
+# Pencere kapat
+bindsym $mod+Shift+q kill
+
+# =============================================================================
+# Focus — vim tuşları
+# =============================================================================
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+bindsym $mod+Left  focus left
+bindsym $mod+Down  focus down
+bindsym $mod+Up    focus up
+bindsym $mod+Right focus right
+
+# =============================================================================
+# Pencere Taşıma
+# =============================================================================
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
+bindsym $mod+Shift+Left  move left
+bindsym $mod+Shift+Down  move down
+bindsym $mod+Shift+Up    move up
+bindsym $mod+Shift+Right move right
+
+# =============================================================================
+# Layout
+# =============================================================================
+bindsym $mod+b split h
+bindsym $mod+v split v
+bindsym $mod+e layout toggle split
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+f fullscreen toggle
+bindsym $mod+Shift+space floating toggle
+bindsym $mod+space       focus mode_toggle
+bindsym $mod+a           focus parent
+
+# =============================================================================
+# Resize Modu
+# =============================================================================
+mode "resize" {
+    bindsym h resize shrink width  10 px or 10 ppt
+    bindsym j resize grow   height 10 px or 10 ppt
+    bindsym k resize shrink height 10 px or 10 ppt
+    bindsym l resize grow   width  10 px or 10 ppt
+    bindsym Left  resize shrink width  10 px or 10 ppt
+    bindsym Down  resize grow   height 10 px or 10 ppt
+    bindsym Up    resize shrink height 10 px or 10 ppt
+    bindsym Right resize grow   width  10 px or 10 ppt
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+    bindsym $mod+r mode "default"
+}
+bindsym $mod+r mode "resize"
+
+# =============================================================================
+# Workspaces
+# =============================================================================
+set $ws1  "1"
+set $ws2  "2"
+set $ws3  "3"
+set $ws4  "4"
+set $ws5  "5"
+set $ws6  "6"
+set $ws7  "7"
+set $ws8  "8"
+set $ws9  "9"
+set $ws10 "10"
+
+bindsym $mod+1 workspace $ws1
+bindsym $mod+2 workspace $ws2
+bindsym $mod+3 workspace $ws3
+bindsym $mod+4 workspace $ws4
+bindsym $mod+5 workspace $ws5
+bindsym $mod+6 workspace $ws6
+bindsym $mod+7 workspace $ws7
+bindsym $mod+8 workspace $ws8
+bindsym $mod+9 workspace $ws9
+bindsym $mod+0 workspace $ws10
+
+bindsym $mod+Shift+1 move container to workspace $ws1
+bindsym $mod+Shift+2 move container to workspace $ws2
+bindsym $mod+Shift+3 move container to workspace $ws3
+bindsym $mod+Shift+4 move container to workspace $ws4
+bindsym $mod+Shift+5 move container to workspace $ws5
+bindsym $mod+Shift+6 move container to workspace $ws6
+bindsym $mod+Shift+7 move container to workspace $ws7
+bindsym $mod+Shift+8 move container to workspace $ws8
+bindsym $mod+Shift+9 move container to workspace $ws9
+bindsym $mod+Shift+0 move container to workspace $ws10
+
+# =============================================================================
+# Floating Kuralları
+# =============================================================================
+for_window [window_role="pop-up"]         floating enable
+for_window [window_role="bubble"]         floating enable
+for_window [window_role="dialog"]         floating enable
+for_window [window_type="dialog"]         floating enable
+for_window [class="Pavucontrol"]          floating enable, resize set 800 500
+for_window [class="Nm-connection-editor"] floating enable
+for_window [class="Blueman-manager"]      floating enable, resize set 700 500
+for_window [title="File Transfer*"]       floating enable
+
+# =============================================================================
+# Ses
+# =============================================================================
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5%
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5%
+bindsym XF86AudioMute        exec --no-startup-id pactl set-sink-mute   @DEFAULT_SINK@ toggle
+bindsym XF86AudioMicMute     exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle
+
+# Ekran parlaklığı (brightnessctl varsa)
+# bindsym XF86MonBrightnessUp   exec --no-startup-id brightnessctl set +10%
+# bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 10%-
+
+# =============================================================================
+# Sistem
+# =============================================================================
+bindsym $mod+ctrl+l exec i3lock -c 282828 --indicator --ring-color=458588 --keyhl-color=fabd2f --bshl-color=cc241d
+bindsym $mod+Shift+c reload
+bindsym $mod+Shift+r restart
+bindsym $mod+Shift+e exec i3-nagbar -t warning \
+    -m 'Oturumu kapat?' \
+    -B 'Evet' 'i3-msg exit' \
+    -B 'Yeniden Başlat' 'systemctl reboot' \
+    -B 'Kapat' 'systemctl poweroff'
+
+# =============================================================================
+# Bar — Gruvbox
+# =============================================================================
+bar {
+    status_command i3status
+    position bottom
+    tray_output primary
+    font pango:Hack 10
+
+    colors {
+        background #282828
+        statusline #ebdbb2
+        separator  #504945
+
+        #                    border   bg       text
+        focused_workspace    #458588  #458588  #282828
+        active_workspace     #3c3836  #3c3836  #ebdbb2
+        inactive_workspace   #282828  #282828  #a89984
+        urgent_workspace     #cc241d  #cc241d  #ebdbb2
+        binding_mode         #d79921  #d79921  #282828
+    }
+}

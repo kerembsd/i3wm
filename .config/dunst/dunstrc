@@ -1,0 +1,106 @@
+# =============================================================================
+# Dunst Config — Gruvbox Dark
+# =============================================================================
+
+[global]
+    # Konum
+    origin = "top-right"
+    offset = "12x12"
+    monitor = 0
+    follow = mouse
+
+    # Boyut
+    width = (200, 400)
+    height = 150
+    notification_limit = 5
+
+    # Görünüm
+    frame_width = 2
+    frame_color = "#458588"
+    corner_radius = 8
+    gap_size = 4
+
+    # Font
+    font = Hack 10
+    line_height = 2
+    markup = full
+    format = "<b>%s</b>\n%b"
+    alignment = left
+    vertical_alignment = center
+    word_wrap = yes
+    ellipsize = middle
+
+    # İkonlar
+    icon_theme = "Adwaita"
+    enable_recursive_icon_lookup = true
+    icon_position = left
+    min_icon_size = 32
+    max_icon_size = 64
+
+    # Zamanlama
+    show_age_threshold = 60
+    hide_duplicate_count = false
+    sticky_history = yes
+    history_length = 20
+
+    # Davranış
+    sort = yes
+    indicate_hidden = yes
+    shrink = no
+    transparency = 10
+    separator_height = 2
+    separator_color = frame
+    padding = 10
+    horizontal_padding = 12
+    text_icon_padding = 0
+
+    # Mouse
+    mouse_left_click   = close_current
+    mouse_middle_click = do_action, close_current
+    mouse_right_click  = close_all
+
+    # Diğer
+    browser = /usr/bin/xdg-open
+    always_run_script = true
+    title = Dunst
+    class = Dunst
+    layer = above
+    force_xwayland = false
+
+[experimental]
+    per_monitor_dpi = false
+
+# =============================================================================
+# Urgency Seviyeleri — Gruvbox
+# =============================================================================
+[urgency_low]
+    background = "#282828"
+    foreground = "#a89984"
+    frame_color = "#3c3836"
+    timeout = 5
+    default_icon = dialog-information
+
+[urgency_normal]
+    background = "#282828"
+    foreground = "#ebdbb2"
+    frame_color = "#458588"
+    timeout = 8
+    default_icon = dialog-information
+
+[urgency_critical]
+    background = "#cc241d"
+    foreground = "#fbf1c7"
+    frame_color = "#fb4934"
+    timeout = 0
+    default_icon = dialog-error
+
+# =============================================================================
+# Uygulama Kuralları
+# =============================================================================
+[volume]
+    appname = "Volume"
+    timeout = 2
+
+[screenshot]
+    appname = "Screenshot"
+    timeout = 3
